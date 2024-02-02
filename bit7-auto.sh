@@ -8,9 +8,9 @@ cd $HOME
 
 wget "https://dl.walletbuilders.com/download?customer=d4cd836283cc39673f6a843db5c41e3344c34d3ae13f297bfa&filename=bit7-qt-linux.tar.gz" -O bit7-qt-linux.tar.gz
 
-mkdir $HOME/Desktop/Bit7
+mkdir $HOME/Bit7
 
-tar -xzvf bit7-qt-linux.tar.gz --directory $HOME/Desktop/Bit7
+tar -xzvf bit7-qt-linux.tar.gz --directory $HOME/Bit7
 
 mkdir $HOME/.bit7
 
@@ -24,16 +24,16 @@ server=1
 addnode=node3.walletbuilders.com
 EOF
 
-cat << EOF > $HOME/Desktop/Bit7/start_wallet.sh
+cat << EOF > $HOME/Bit7/start_wallet.sh
 #!/bin/bash
 SCRIPT_PATH=\`pwd\`;
 cd \$SCRIPT_PATH
 ./bit7-qt
 EOF
 
-chmod +x $HOME/Desktop/Bit7/start_wallet.sh
+chmod +x $HOME/Bit7/start_wallet.sh
 
-cat << EOF > $HOME/Desktop/Bit7/mine.sh
+cat << EOF > $HOME/Bit7/mine.sh
 #!/bin/bash
 SCRIPT_PATH=\`pwd\`;
 cd \$SCRIPT_PATH
@@ -43,18 +43,18 @@ do
 done
 EOF
 
-chmod +x $HOME/Desktop/Bit7/mine.sh
+chmod +x $HOME/Bit7/mine.sh
     
-exec $HOME/Desktop/Bit7/bit7-qt &
+exec $HOME/Bit7/bit7-qt &
 
 sleep 15
 
-exec $HOME/Desktop/Bit7/bit7-cli -named createwallet wallet_name="" &
+exec $HOME/Bit7/bit7-cli -named createwallet wallet_name="" &
     
 sleep 15
 
-cd $HOME/Desktop/Bit7/
+cd $HOME/Bit7/
 
 clear
 
-exec $HOME/Desktop/Bit7/mine.sh
+exec $HOME/Bit7/mine.sh
